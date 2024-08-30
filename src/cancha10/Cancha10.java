@@ -8,26 +8,23 @@ import cancha.Turno;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**
- *
- * @author PC
- */
+
 
 public class Cancha10 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-              // Crear una instancia de Cancha
-        Cancha cancha1 = new Cancha("Cancha 1", "Fútbol 5", 500.0,8);
 
+       
+/*
+        Cancha cancha1 = new Cancha("Cancha 1", "Fútbol 5", 500.0,8);
         // Crear una instancia de Turno
         LocalDate fecha = LocalDate.of(2024, 8, 26);
         LocalDateTime horaInicio = LocalDateTime.of(2024, 8, 26, 14, 0);
         LocalDateTime horaFin = LocalDateTime.of(2024, 8, 26, 16, 0);
         Turno turno1 = new Turno(cancha1, fecha, horaInicio, horaFin, "Juan Pérez");
-
+        
+        
+        
         // Imprimir los detalles del turno
         System.out.println(turno1);
 
@@ -43,7 +40,7 @@ public class Cancha10 {
             System.out.println(turno2);
         } else {
             System.out.println("La cancha no está disponible para otro turno.");
-        }
+        }*/
     }
     
 }

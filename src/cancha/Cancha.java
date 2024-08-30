@@ -2,14 +2,42 @@
 package cancha;
 
 
+
+
+enum TipoCancha{
+    
+    Futbol5(1),
+    Futbol7(2),
+    Futbol9(3),
+    Futbol11(4),
+    Basket(5),
+    Tennis(6),
+    Handball(7);
+    
+    private int codigo;
+    
+    private TipoCancha(int codigo)
+    {
+        this.codigo=codigo;
+    }
+    
+    public int getCode()
+    {
+        return this.codigo;
+    }
+    
+    
+}
+
+
 public class Cancha {
     private String nombre;
-    private String tipo; 
+    private TipoCancha tipo; 
     public int cantidadJugadores;
     private double precioPorHora;
     private boolean disponible;
 
-    public Cancha(String nombre, String tipo, double precioPorHora,int cantidadJugadores) {
+    public Cancha(String nombre, TipoCancha tipo, double precioPorHora,int cantidadJugadores) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precioPorHora = precioPorHora;
@@ -26,12 +54,12 @@ public class Cancha {
     }
     
 
-    public String getTipo() {
+    public TipoCancha getTipo() {
         return tipo;
     }
     
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoCancha tipo) {
         this.tipo = tipo;
     }
 
@@ -50,10 +78,18 @@ public class Cancha {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+    
+   
 
-    @Override
-    public String toString() {
-        return "Cancha [nombre=" + nombre + ", tipo=" + tipo + ", precioPorHora=" + precioPorHora + ", disponible=" + disponible + "]";
-    }
+@Override
+public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Nombre: ").append(this.nombre).append("\n");
+    sb.append("Tipo: ").append(this.tipo).append("\n");
+    sb.append("Cantidad de jugadores: ").append(this.cantidadJugadores).append("\n");
+    sb.append("Precio por hora: ").append(this.precioPorHora).append("\n");
+    sb.append("Disponible: ").append(this.disponible ? "Sí" : "No").append("\n");
+    return sb.toString();
+}
 }
 
