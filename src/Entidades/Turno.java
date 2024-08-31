@@ -1,4 +1,4 @@
-package cancha;
+package Entidades;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -86,6 +86,10 @@ private double calcularPrecio() {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Cancha: ").append(this.cancha.getNombre()).append("\n");
+        
+        
+        
+        
         sb.append("Cliente: ").append(this.getIdCliente()).append("\n");
         sb.append("Fecha: ").append(this.fecha).append("\n");
         sb.append("Hora de inicio: ").append(this.fechaHoraInicio).append("\n");

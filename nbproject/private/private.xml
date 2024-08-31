@@ -6,11 +6,13 @@
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/forms/formPrincipal.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/build.xml</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha10/Cancha10.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha/GestionTurnos.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha/Cancha.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha/Turno.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha/TurnoBD.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/cancha/Cliente.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/CanchaSQL/ClienteBD.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/CanchaSQL/TurnoBD.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/Entidades/Cliente.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/Entidades/Cancha.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/enums/TipoCancha.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/Entidades/Turno.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/Cancha10/src/Entidades/GestionTurnos.java</file>
         </group>
     </open-files>
 </project-private>

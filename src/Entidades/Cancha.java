@@ -1,43 +1,20 @@
-
-package cancha;
-
+package Entidades;
 
 
+import enums.TipoCancha;
 
-enum TipoCancha{
-    
-    Futbol5(1),
-    Futbol7(2),
-    Futbol9(3),
-    Futbol11(4),
-    Basket(5),
-    Tennis(6),
-    Handball(7);
-    
-    private int codigo;
-    
-    private TipoCancha(int codigo)
-    {
-        this.codigo=codigo;
-    }
-    
-    public int getCode()
-    {
-        return this.codigo;
-    }
-    
-    
-}
 
 
 public class Cancha {
+    
     private String nombre;
     private TipoCancha tipo; 
     public int cantidadJugadores;
     private double precioPorHora;
     private boolean disponible;
 
-    public Cancha(String nombre, TipoCancha tipo, double precioPorHora,int cantidadJugadores) {
+    public Cancha(String nombre, TipoCancha tipo, double precioPorHora,int cantidadJugadores) 
+    {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precioPorHora = precioPorHora;

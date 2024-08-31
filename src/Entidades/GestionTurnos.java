@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package cancha;
+package Entidades;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,6 +15,11 @@ import java.util.ArrayList;
 public class GestionTurnos {
     
     ArrayList<Turno> turnos;
+    
+    public GestionTurnos()
+    {
+        this.turnos=new ArrayList<Turno>();
+    }
     
     public GestionTurnos(ArrayList<Turno> turnos)
     {
@@ -42,9 +47,11 @@ public class GestionTurnos {
     }
     
     public boolean verificarDisponibilidad(Cancha cancha, LocalDateTime inicio, LocalDateTime fin) {
-    for (Turno turno : turnos) {
-        if (turno.getCancha().equals(cancha) && 
-            ((inicio.isBefore(turno.getFechaHoraFin()) && fin.isAfter(turno.getFechaHoraInicio())))) {
+    for (Turno turno : turnos) 
+    {
+        if(turno.getCancha().equals(cancha) && 
+          ((inicio.isBefore(turno.getFechaHoraFin()) && fin.isAfter(turno.getFechaHoraInicio())))) 
+        {
             return false; // La cancha no está disponible en este rango de tiempo
         }
     }

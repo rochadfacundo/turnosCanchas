@@ -3,16 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package cancha10;
-import cancha.Cancha;
-import cancha.Turno;
+import Entidades.Cancha;
+import enums.TipoCancha;
+import Entidades.Cliente;
+import Entidades.Turno;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import CanchaSQL.ClienteBD;
 
 
 
 public class Cancha10 {
 
     public static void main(String[] args) {
+        
+        Cliente cliente = new Cliente(1, "Tefo", "Suchecki", 5);
+        //Cancha cancha = new Cancha("Cancha 1", TipoCancha.Basket, 4, 4);
+        //Turno turno = new Turno(cliente.getId(), cancha, LocalDate.EPOCH, LocalDateTime.MIN, LocalDateTime.MIN);
+        
+        ClienteBD bd_Cliente=new ClienteBD();
+        
+        bd_Cliente.guardarCliente(cliente);
+        
+        
+        
 
        
 /*

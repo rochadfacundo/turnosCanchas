@@ -1,2 +1,0 @@
-cancha.TipoCancha
-cancha.Cancha

@@ -2,28 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package cancha;
-import java.sql.*;
+package CanchaSQL;
+
+import Entidades.Cancha;
+import Entidades.Cliente;
+import Entidades.Turno;
+import enums.TipoCancha;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-/**
- *
- * @author PC
- */
+
 public class TurnoBD {
     
-        private Connection connection;
+       private Connection connection;
+        
 
-    public TurnoBD() {
-        try {
-            // Configura la conexión a la base de datos
-            connection = DriverManager.getConnection("jdbc:your_database_url", "username", "password");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+  public TurnoBD() {
+    try {
+        // Configura la conexión a la base de datos MySQL
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cancha10", "root", "Boca7414");
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
     
      public void guardarTurno(Turno turno) {
         String sql = "INSERT INTO turnos (cancha, fecha, inicio, fin, cliente, precio) VALUES (?, ?, ?, ?, ?, ?)";
@@ -45,7 +52,8 @@ public class TurnoBD {
         ArrayList<Turno> turnos = new ArrayList<>();
         String sql = "SELECT * FROM turnos";
         try (PreparedStatement stmt = connection.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+             ResultSet rs = stmt.executeQuery()) 
+        {
             while (rs.next()) {
                 // Ejemplo de cómo usar los métodos en TurnoBD
                 String nombreCancha = rs.getString("cancha");
@@ -69,21 +77,22 @@ public class TurnoBD {
         return turnos;
        }
        
-       private Cancha obtenerCanchaPorNombre(String nombre) {
-    // Implementar lógica para obtener la cancha de la base de datos
-    // Por ahora, te doy un ejemplo estático, pero debes conectar con la base de datos
-    return new Cancha(nombre, TipoCancha.Futbol5, 100.0, 5); // Ejemplo
-       }
+        private Cancha obtenerCanchaPorNombre(String nombre) 
+        {
+         // Implementar lógica para obtener la cancha de la base de datos
+         // Por ahora, te doy un ejemplo estático, pero debes conectar con la base de datos
+         return new Cancha(nombre, TipoCancha.Futbol5, 100.0, 5); // Ejemplo
+        }
        
        // Método para obtener un cliente por nombre (debe implementarse según tu lógica)
-     private Cliente obtenerClientePorId(int idCliente) {
-    // Implementar lógica para obtener el cliente de la base de datos
-    // Por ahora, te doy un ejemplo estático, pero debes conectar con la base de datos
-         return null; // Ejemplo
+        private Cliente obtenerClientePorId(int idCliente) 
+        {
+       // Implementar lógica para obtener el cliente de la base de datos
+       // Por ahora, te doy un ejemplo estático, pero debes conectar con la base de datos
+            return null; // Ejemplo
     }
      
      
-       
        
     
 }
