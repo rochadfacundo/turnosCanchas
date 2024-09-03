@@ -4,17 +4,35 @@
  */
 package forms;
 
-/**
- *
- * @author PC
- */
+import CanchaSQL.ClienteBD;
+import Entidades.Cliente;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
+
 public class formPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formPrincipal
-     */
+    DefaultTableModel modelo= new DefaultTableModel();
+    ArrayList<Cliente> clientes= new ArrayList<Cliente>();
+
     public formPrincipal() {
         initComponents();
+        this.setTitle("Sección clientes");
+        this.setSize(720,570);
+        this.setLocationRelativeTo(null);
+        this.modelo.addColumn("Nombre");
+        this.modelo.addColumn("Apellido");
+        this.modelo.addColumn("DNI");
+        this.modelo.addColumn("Email");
+        this.modelo.addColumn("Telefono");
+        
+        this.actualizarTabla();
+                                
+    }
+    
+    private void actualizarTabla()
+    {
+        this.jTable1.setModel(this.modelo);
     }
 
     /**
@@ -26,21 +44,162 @@ public class formPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jMenu1 = new javax.swing.JMenu();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnAgregarCliente = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtDNI = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
-        );
+        jMenu1.setText("jMenu1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setName("tbClientes"); // NOI18N
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 225, 490, 140));
+
+        btnAgregarCliente.setText("Agregar cliente");
+        btnAgregarCliente.setName("btnAgregarCliente"); // NOI18N
+        btnAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
+        btnAgregarCliente.getAccessibleContext().setAccessibleName("btnAgregarCliente");
+
+        jLabel1.setText("Teléfono:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+
+        jLabel2.setText("Nombre:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+
+        jLabel3.setText("Apellido:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+
+        jLabel4.setText("DNI:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
+
+        jLabel5.setText("Email:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+
+        txtTelefono.setText("Ingrese teléfono");
+        txtTelefono.setName("txtTelefono"); // NOI18N
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 180, -1));
+        txtTelefono.getAccessibleContext().setAccessibleName("txtTelefono");
+
+        txtNombre.setText("Ingrese nombre");
+        txtNombre.setName("txtNombre"); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 180, -1));
+        txtNombre.getAccessibleContext().setAccessibleName("txtNombre");
+
+        txtApellido.setText("Ingrese apellido");
+        txtApellido.setName("txtApellido"); // NOI18N
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
+        txtApellido.getAccessibleContext().setAccessibleName("txtApellido");
+
+        txtDNI.setText("Ingrese DNI");
+        txtDNI.setName("txtDNI"); // NOI18N
+        txtDNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDNIActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
+        txtDNI.getAccessibleContext().setAccessibleName("txtDNI");
+
+        txtEmail.setText("Ingrese Email");
+        txtEmail.setName("txtEmail"); // NOI18N
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 180, -1));
+        txtEmail.getAccessibleContext().setAccessibleName("txtEmail");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
+      
+        String nombre = this.txtNombre.toString();
+        String apellido = this.txtApellido.toString();
+        String dni = this.txtDNI.toString();
+        String email = this.txtEmail.toString();     
+        String telefono = this.txtTelefono.toString();
+
+
+        Cliente cliente = new Cliente(0, nombre, apellido, dni,email,telefono);
+        
+        
+        ClienteBD clienteBD=new ClienteBD();
+        
+        System.out.println(cliente.toString());
+        
+        
+        //clienteBD.agregarCliente(cliente);
+                
+        
+        
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDNIActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +237,19 @@ public class formPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarCliente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtDNI;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,26 +29,30 @@ public class ClienteBD {
     }
     
        // Método para insertar un nuevo cliente en la base de datos
-    public void guardarCliente(Cliente cliente) {
-        String sql = "INSERT INTO clientes (nombre, apellido, dni) VALUES (?, ?, ?)";
+    public void agregarCliente(Cliente cliente) {
+        String sql = "INSERT INTO clientes (nombre, apellido, dni,email,telefono) VALUES (?, ?, ?,?,?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
-            stmt.setInt(3, cliente.getDNI());
+            stmt.setString(3, cliente.getDni());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getTelefono());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
-        // Método para actualizar un cliente existente en la base de datos
+        //ARREGLAR ESTE METODO "?"
     public void actualizarCliente(Cliente cliente) {
         String sql = "UPDATE clientes SET nombre = ?, apellido = ?, dni = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNombre());
             stmt.setString(2, cliente.getApellido());
-            stmt.setInt(3, cliente.getDNI());
-            stmt.setInt(4, cliente.getId());
+            stmt.setString(3, cliente.getDni());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getTelefono());
+            stmt.setInt(6, cliente.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,8 +79,11 @@ public class ClienteBD {
                 if (rs.next()) {
                     String nombre = rs.getString("nombre");
                     String apellido = rs.getString("apellido");
-                    int dni = rs.getInt("dni");
-                    return new Cliente(id, nombre, apellido, dni);
+                    String email = rs.getString("email");
+                    String telefono = rs.getString("telefono");
+                    String dni = rs.getString("dni");
+               
+                    return new Cliente(id, nombre, apellido, dni,email,telefono);
                 }
             }
         } catch (SQLException e) {
@@ -93,11 +100,13 @@ public class ClienteBD {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
-                int dni = rs.getInt("dni");
-                Cliente cliente = new Cliente(id, nombre, apellido, dni);
-                clientes.add(cliente);
+            String nombre = rs.getString("nombre");
+            String apellido = rs.getString("apellido");
+            String email = rs.getString("email");
+            String telefono = rs.getString("telefono");
+            String dni = rs.getString("dni");
+            Cliente cliente = new Cliente(id, nombre, apellido, dni,email,telefono);
+            clientes.add(cliente);
             }
         } catch (SQLException e) {
             e.printStackTrace();

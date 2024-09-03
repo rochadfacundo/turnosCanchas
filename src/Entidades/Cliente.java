@@ -6,15 +6,45 @@ public class Cliente {
     private int id;
     private String nombre;
     private String apellido;
-    private int dni;
+    private String telefono;
+    private String email;
+    private String dni;
     
-    public Cliente(int id,String nombre,String apellido,int dni)
+    public Cliente(int id,String nombre,String apellido,String dni,String email,String telefono)
     {
         this.id=id;
         this.nombre=nombre;
         this.apellido=apellido;
         this.dni=dni;
+        this.telefono=telefono;
+        this.email=email;
     }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    
     
     public int getId()
     {
@@ -41,17 +71,7 @@ public class Cliente {
     {
         this.apellido=apellido;
     }
-        
-    public int getDNI()
-    {
-        return this.dni;
-    }
-    
-    public void setDNI(int dni)
-    {
-        this.dni=dni;
-    }
-    
+       
     
     
     

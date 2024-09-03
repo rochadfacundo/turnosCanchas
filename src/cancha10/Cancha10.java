@@ -6,6 +6,7 @@ package cancha10;
 import Entidades.Cancha;
 import enums.TipoCancha;
 import Entidades.Cliente;
+import forms.formPrincipal;
 import Entidades.Turno;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,15 +18,21 @@ public class Cancha10 {
 
     public static void main(String[] args) {
         
-        Cliente cliente = new Cliente(1, "Tefo", "Suchecki", 5);
+     
         //Cancha cancha = new Cancha("Cancha 1", TipoCancha.Basket, 4, 4);
         //Turno turno = new Turno(cliente.getId(), cancha, LocalDate.EPOCH, LocalDateTime.MIN, LocalDateTime.MIN);
         
+        formPrincipal form= new formPrincipal();
+        
+        form.show();
+        
+        
+        /*
         ClienteBD bd_Cliente=new ClienteBD();
         
         bd_Cliente.guardarCliente(cliente);
         
-        
+        */
         
 
        
