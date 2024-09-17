@@ -3,14 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package cancha10;
-import Entidades.Cancha;
-import enums.TipoCancha;
 import Entidades.Cliente;
 import forms.formPrincipal;
-import Entidades.Turno;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import CanchaSQL.ClienteBD;
+import java.util.ArrayList;
 
 
 
@@ -24,7 +20,13 @@ public class Cancha10 {
         
         formPrincipal form= new formPrincipal();
         
-        form.show();
+        ClienteBD clienteBD=new ClienteBD();
+        
+        ArrayList<Cliente> clientes= clienteBD.obtenerTodosLosClientes();
+
+        System.out.println(clientes);
+        
+        form.setVisible(true);
         
         
         /*

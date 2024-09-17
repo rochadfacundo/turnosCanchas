@@ -14,6 +14,9 @@ public class formPrincipal extends javax.swing.JFrame {
 
     DefaultTableModel modelo= new DefaultTableModel();
     ArrayList<Cliente> clientes= new ArrayList<Cliente>();
+    Cliente[] clientesArray= new Cliente[10];
+    
+
 
     public formPrincipal() {
         initComponents();
@@ -25,6 +28,11 @@ public class formPrincipal extends javax.swing.JFrame {
         this.modelo.addColumn("DNI");
         this.modelo.addColumn("Email");
         this.modelo.addColumn("Telefono");
+        
+        Cliente cliente=new Cliente(5, "Facu", "Rocha", "36904411", "fac@gmail.com", "1156537467");        
+    
+        this.clientesArray[0]=cliente;
+        this.modelo.addRow(clientesArray);
         
         this.actualizarTabla();
                                 
@@ -105,7 +113,6 @@ public class formPrincipal extends javax.swing.JFrame {
         jLabel5.setText("Email:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
-        txtTelefono.setText("Ingrese teléfono");
         txtTelefono.setName("txtTelefono"); // NOI18N
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +122,6 @@ public class formPrincipal extends javax.swing.JFrame {
         getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 180, -1));
         txtTelefono.getAccessibleContext().setAccessibleName("txtTelefono");
 
-        txtNombre.setText("Ingrese nombre");
         txtNombre.setName("txtNombre"); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +131,6 @@ public class formPrincipal extends javax.swing.JFrame {
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 180, -1));
         txtNombre.getAccessibleContext().setAccessibleName("txtNombre");
 
-        txtApellido.setText("Ingrese apellido");
         txtApellido.setName("txtApellido"); // NOI18N
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +140,6 @@ public class formPrincipal extends javax.swing.JFrame {
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
         txtApellido.getAccessibleContext().setAccessibleName("txtApellido");
 
-        txtDNI.setText("Ingrese DNI");
         txtDNI.setName("txtDNI"); // NOI18N
         txtDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +149,6 @@ public class formPrincipal extends javax.swing.JFrame {
         getContentPane().add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
         txtDNI.getAccessibleContext().setAccessibleName("txtDNI");
 
-        txtEmail.setText("Ingrese Email");
         txtEmail.setName("txtEmail"); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
